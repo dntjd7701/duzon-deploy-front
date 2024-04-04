@@ -16,7 +16,7 @@ export default function RootPage() {
 
   const fetchData = async () => {
     try {
-      const modules = await axios.get('http://10.51.121.74:7007/modules');
+      const modules = await axios.get(`${process.env.REACT_APP_API_URI}/modules`);
       setModules(modules.data);
     } catch (error) {
       console.error(error);

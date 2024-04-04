@@ -1,6 +1,5 @@
 import { Button, Card, CardBody, CardHeader, Typography } from '@material-tailwind/react';
 import axios from 'axios';
-import { useEffect } from 'react';
 
 interface ModuleCardProps {
   module: string;
@@ -8,7 +7,7 @@ interface ModuleCardProps {
 
 export function ModuleCard({ module }: ModuleCardProps) {
   const handleDeploy = async () => {
-    await axios.post('http://10.51.121.74:7007/build', { module, fg: 'all' });
+    await axios.post(`${process.env.REACT_APP_API_URI}/build`, { module, fg: 'all' });
   };
 
   return (
