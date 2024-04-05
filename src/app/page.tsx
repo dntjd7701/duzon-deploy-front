@@ -3,8 +3,8 @@
 // components
 import { Navbar } from '@/components';
 import React, { useEffect } from 'react';
+import { Main } from '../components';
 import axios from 'axios';
-import { Main } from '../../components';
 
 // sections
 export default function RootPage() {
@@ -16,9 +16,8 @@ export default function RootPage() {
 
   const fetchData = async () => {
     try {
-      console.debug(process.env);
-      // const modules = await axios.get(`${process.env.REACT_APP_API_URI}/modules`);
-      // setModules(modules.data);
+      const modules = await axios.get(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/modules`);
+      setModules(modules.data);
     } catch (error) {
       console.error(error);
     }

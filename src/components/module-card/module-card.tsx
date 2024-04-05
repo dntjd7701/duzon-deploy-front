@@ -6,8 +6,9 @@ interface ModuleCardProps {
 }
 
 export function ModuleCard({ module }: ModuleCardProps) {
-  const handleDeploy = async () => {
-    await axios.post(`${process.env.REACT_APP_API_URI}/build`, { module, fg: 'all' });
+  const handleDeploy = async (e: any) => {
+    console.log(e.target.id);
+    await axios.post(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/build`, { module, target: e.target.id });
   };
 
   return (
@@ -15,6 +16,7 @@ export function ModuleCard({ module }: ModuleCardProps) {
       placeholder={''}
       className='border'>
       <CardHeader
+        id='all'
         placeholder={''}
         className='h-52'
         shadow={true}
@@ -40,7 +42,7 @@ export function ModuleCard({ module }: ModuleCardProps) {
             variant='small'
             color='blue'
             className='mb-2 font-normal text-gray-500'>
-            모듈 카드 선택 - 프론트 & 백 & 재구동 일괄 처리
+            모듈 카드 선택 - 프론트 & 백 빌드 및 배포 일괄
           </Typography>
         </div>
         <div className='flex items-center gap-2'>
@@ -49,20 +51,22 @@ export function ModuleCard({ module }: ModuleCardProps) {
             variant='small'
             color='blue'
             className='mb-2 font-normal text-gray-500'>
-            세부 버튼 클릭 - 각 버튼별 처리
+            세부 버튼 클릭 - 각 버튼별 처리 build only
           </Typography>
         </div>
         <div className='flex justify-between mt-2'>
           <Button
             id='front'
             placeholder={''}
-            variant='outlined'>
+            variant='outlined'
+            onClick={handleDeploy}>
             프론트
           </Button>
           <Button
             id='back'
             placeholder={''}
-            variant='outlined'>
+            variant='outlined'
+            onClick={handleDeploy}>
             백엔드
           </Button>
           {/* <Button
