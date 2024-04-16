@@ -112,7 +112,7 @@ section {
 
 body {
   line-height: 1;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 ol,
@@ -137,7 +137,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 
 .ripple-btn {
   position: absolute;

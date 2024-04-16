@@ -8,27 +8,14 @@ import { Main } from '../../components';
 
 // sections
 export default function RootPage() {
-  const [modules, setModules] = React.useState<string[]>([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      console.debug(process.env);
-      // const modules = await axios.get(`${process.env.REACT_APP_API_URI}/modules`);
-      // setModules(modules.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <>
+      <div className='w-40 h-40 bg-white flex flex-col items-center justify-center'>
+        <span>hi</span>
+      </div>
       {/* <NavbarDark /> */}
-      <Navbar />
-      <Main modules={modules} />
+      {/* <Navbar /> */}
+      {/* <Main modules={modules} /> */}
       {/* <Footer /> */}
     </>
   );
