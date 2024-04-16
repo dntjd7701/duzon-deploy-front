@@ -8,14 +8,14 @@ interface MainProps {
 }
 
 export const Main = ({ modules }: MainProps) => {
-  const using = false;
+  const using = true;
   const time = 5;
 
   return (
     <section className='px-8 py-10'>
       <div className='container mx-auto mb-24 text-center'>
         <div>
-          <h2 className='text-white text-3xl'>더존 개발서버 배포 ver 1.0</h2>
+          <h2 className='text-white text-3xl'>더존 개발서버 배포 ver 1.1</h2>
         </div>
         <div>
           <h5 className='text-gray-500 text-xl mt-2 mx-auto w-full px-4 lg:w-6/12 lg:px-8'>솔루션 BS개발부 ERP물류개발팀</h5>
