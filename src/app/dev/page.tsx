@@ -1,18 +1,23 @@
 'use client';
 
-// components
-import { Navbar } from '@/components';
-import React, { useEffect } from 'react';
 import axios from 'axios';
-import { Main } from '../../components';
+
+// components
 
 // sections
 export default function RootPage() {
+  const handleTest = async () => {
+    const { data } = await axios.get(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/test/ip`);
+    console.debug('data:', data);
+  };
+
   return (
     <>
-      <div className='w-40 h-40 bg-white flex flex-col items-center justify-center'>
-        <span>hi</span>
-      </div>
+      <button
+        onClick={handleTest}
+        className='w-11 h-11 bg-white'>
+        test
+      </button>
       {/* <NavbarDark /> */}
       {/* <Navbar /> */}
       {/* <Main modules={modules} /> */}
