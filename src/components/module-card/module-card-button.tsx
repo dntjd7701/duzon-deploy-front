@@ -17,8 +17,42 @@ export const ModuleCardButton = ({ targetId, module }: ModuleCardButtonProps) =>
     data: [],
   });
 
+  const doBuild = async (e: any) => {
+    try {
+      const { data } = await axios.post(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/test/build`, {
+        module,
+        target: e.target.id,
+      });
+      setData({
+        state: data.state,
+        data: data.data,
+      });
+
+      console.debug('data:', data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const doDeploy = async (e: any) => {
+    try {
+      const { data } = await axios.post(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/deploy`, {
+        module,
+        target: e.target.id,
+      });
+
+      setData({
+        state: data.state,
+        data: data.data,
+      });
+
+      console.debug('data:', data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleDeploy = async (e: any) => {
-    console.debug('e:', e);
     try {
       setLoading(true);
       await doBuild(e);
@@ -35,16 +69,12 @@ export const ModuleCardButton = ({ targetId, module }: ModuleCardButtonProps) =>
     }
   };
 
-  const doBuild = async (e: any) => {
+  const handleDeployOnly = async (e: any) => {
     try {
-      const { data } = await axios.post(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/build`, {
-        module,
-        target: e.target.id,
-      });
-      setData({
-        state: data.state,
-        data: data.data,
-      });
+      setLoading(true);
+      await doDeploy(e);
+      setLoading(false);
+      setOpenAlert(true);
     } catch (error) {
       console.error(error);
     }
@@ -85,7 +115,26 @@ export const ModuleCardButton = ({ targetId, module }: ModuleCardButtonProps) =>
           placeholder={''}
           variant='h2'
           color={data.state === 0 ? 'lime' : 'red'}>
-          {data.state === 0 ? '빌드 성공' : '빌드 실패'}
+          {data.state === 0 ? '빌드 성공' : data.state === -1 ? '빌드 실패' : '배포 실패'}
+
+          {data.state === -2 && (
+            <Button
+              key={targetId}
+              id={targetId}
+              disabled={loading}
+              className='flex flex-col items-center justify-center bg-white'
+              placeholder={''}
+              variant='outlined'
+              onClick={handleDeployOnly}>
+              {loading && (
+                <Spinner
+                  className='mb-2'
+                  color='teal'
+                />
+              )}
+              재배포
+            </Button>
+          )}
         </Typography>
         <Typography
           placeholder={''}

@@ -1,6 +1,4 @@
-import { Button, Card, CardBody, CardHeader, Typography, Spinner, Alert } from '@material-tailwind/react';
-import axios from 'axios';
-import { useState } from 'react';
+import { Button, Card, CardBody, CardHeader, Typography } from '@material-tailwind/react';
 import { ModuleCardButton } from './module-card-button';
 
 interface ModuleCardProps {
@@ -21,23 +19,27 @@ export function ModuleCard({ module }: ModuleCardProps) {
           className='h-52'
           shadow
           floated>
-          <Button
-            placeholder={''}
-            color={'white'}
-            className='w-full h-full '
-            // onClick={handleDeploy}>
-          >
-            <Typography
+          <a
+            href={`http://14.41.55.45:8089/?utf8=%E2%9C%93&name=${module}`}
+            target='_blank'>
+            <Button
               placeholder={''}
-              variant='h2'
-              className='flex justify-center items-center normal-case'>
-              {`${module.toUpperCase()}`}
-            </Typography>
-          </Button>
+              color={'white'}
+              className='w-full h-full '>
+              <Typography
+                placeholder={''}
+                variant='h2'
+                className='flex justify-center items-center normal-case'>
+                {module.toUpperCase()}
+                <br />
+                (GitLab 연결)
+              </Typography>
+            </Button>
+          </a>
         </CardHeader>
 
         <CardBody placeholder={''}>
-          <div className='flex items-center gap-2'>
+          {/* <div className='flex items-center gap-2'>
             <Typography
               placeholder={''}
               variant='small'
@@ -45,7 +47,7 @@ export function ModuleCard({ module }: ModuleCardProps) {
               className='mb-2 font-normal '>
               버튼 클릭 시, 빌드 및 배포까지 이루어집니다.
             </Typography>
-          </div>
+          </div> */}
           {/* <div className='flex items-center gap-2'>
             <Typography
               placeholder={''}
