@@ -1,6 +1,5 @@
 'use client';
 
-import { Typography } from '@material-tailwind/react';
 import { ModuleCard } from '@/components/module-card/module-card';
 
 interface MainProps {

@@ -19,7 +19,7 @@ export const ModuleCardButton = ({ targetId, module }: ModuleCardButtonProps) =>
 
   const doBuild = async (e: any) => {
     try {
-      const { data } = await axios.post(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/test/build`, {
+      const { data } = await axios.post(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/build`, {
         module,
         target: e.target.id,
       });

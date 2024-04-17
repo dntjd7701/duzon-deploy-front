@@ -2,6 +2,7 @@ import { FixedPlugin, Layout } from '@/components';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
+import { Navbar } from '@/components';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={roboto.className}>
+        <Navbar />
         <Layout>{children}</Layout>
         <FixedPlugin />
       </body>

@@ -7,8 +7,7 @@ import axios from 'axios';
 // sections
 export default function RootPage() {
   const handleTest = async () => {
-    const { data } = await axios.get(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/test/ip`);
-    console.debug('data:', data);
+    const { data } = await axios.get(`http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/test`);
   };
 
   return (
