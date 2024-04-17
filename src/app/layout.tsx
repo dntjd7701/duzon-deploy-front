@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components';
+import { useEffect } from 'react';
 
 const roboto = Roboto({
   subsets: ['latin'],

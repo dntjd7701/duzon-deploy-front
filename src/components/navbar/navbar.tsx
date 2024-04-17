@@ -1,5 +1,4 @@
 import { BellIcon, Cog6ToothIcon } from '@heroicons/react/24/solid';
-import { Drawer, Typography } from '@material-tailwind/react';
 
 export const Navbar = () => {
   //나중에 ripple 넣어보자
@@ -39,8 +38,9 @@ export const Navbar = () => {
             </button>
             <button
               className='relative overflow-hidden text-white font-bold h-full bg-black py-3 px-6 text-xs hover:opacity-80 active:bg-white/30 active:shadow-button_active rounded-lg shadow-button active:animation-ripple'
-              onClick={handleShowLogs}>
-              <a href={`/log`}>로그 파일 보기</a>
+              onClick={handleShowLogs}
+              disabled>
+              <a href={`/log`}>로그 파일 보기(작업예정)</a>
             </button>
             <button className='w-10 h-10 hover:bg-white/10 active:bg-white/30 rounded-lg'>
               <Cog6ToothIcon className='h-4 w-full' />
