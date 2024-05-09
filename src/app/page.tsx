@@ -28,20 +28,9 @@ export default function RootPage() {
   return (
     <>
       <Button
-        variant={'filled'}
-        size={'md'}
-        color={'gray'}
-        fullWidth={false}
-        ripple
-        className={''}
-        //  variant?: variant;
-        // size?: size;
-        // color?: color;
-        // fullWidth?: fullWidth;
-        // ripple?: ripple;
-        // className?: className;
-        // children: children;
-        placeholder={''}>
+        placeholder={''}
+        onPointerEnterCapture={() => {}}
+        onPointerLeaveCapture={() => {}}>
         hi
       </Button>
       {/* <NavbarDark /> */}
