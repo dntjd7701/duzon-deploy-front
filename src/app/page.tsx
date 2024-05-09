@@ -27,7 +27,23 @@ export default function RootPage() {
 
   return (
     <>
-      <Button placeholder={''}>hi</Button>
+      <Button
+        variant={'filled'}
+        size={'md'}
+        color={'gray'}
+        fullWidth={false}
+        ripple
+        className={''}
+        //  variant?: variant;
+        // size?: size;
+        // color?: color;
+        // fullWidth?: fullWidth;
+        // ripple?: ripple;
+        // className?: className;
+        // children: children;
+        placeholder={''}>
+        hi
+      </Button>
       {/* <NavbarDark /> */}
       {/* <Navbar /> */}
       {/* <Main modules={modules} /> */}
