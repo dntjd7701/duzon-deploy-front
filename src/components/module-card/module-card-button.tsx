@@ -27,8 +27,6 @@ export const ModuleCardButton = ({ targetId, module }: ModuleCardButtonProps) =>
         state: data.state,
         data: data.data,
       });
-
-      console.debug('data:', data);
     } catch (error) {
       console.error(error);
     }
@@ -53,12 +51,13 @@ export const ModuleCardButton = ({ targetId, module }: ModuleCardButtonProps) =>
   };
 
   const handleDeploy = async (e: any) => {
+    console.debug('e:', e.target.id);
+    console.debug('e:', module);
     try {
-      setLoading(true);
-      await doBuild(e);
-      setLoading(false);
-      setOpenAlert(true);
-
+      // setLoading(true);
+      // await doBuild(e);
+      // setLoading(false);
+      // setOpenAlert(true);
       //   if (data.state !== -1) {
       //     setTimeout(() => {
       //       setOpenAlert(false);
