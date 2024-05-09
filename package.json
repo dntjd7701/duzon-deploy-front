@@ -9,7 +9,8 @@
     "dev": "export PORT=3001 && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "next build"
   },
   "dependencies": {
     "@heroicons/react": "2.0.18",
