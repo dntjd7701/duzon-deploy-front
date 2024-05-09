@@ -7,7 +7,7 @@ export function FixedPlugin() {
     <a
       href='https://dev.amaranth10.co.kr/devservermanager/'
       target='_blank'>
-      {/* <Button
+      <Button
         placeholder={''}
         color='white'
         size='sm'
@@ -20,7 +20,7 @@ export function FixedPlugin() {
           src='https://www.material-tailwind.com/favicon.png'
         />
         Amaranth10 개발서버 관리자
-      </Button> */}
+      </Button>
     </a>
   );
 }

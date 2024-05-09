@@ -31,9 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={roboto.className}>
-        <Navbar />
+        {/* <Navbar /> */}
         <Layout>{children}</Layout>
-        <FixedPlugin />
+        {/* <FixedPlugin /> */}
       </body>
     </html>
   );

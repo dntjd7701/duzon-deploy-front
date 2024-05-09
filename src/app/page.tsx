@@ -3,7 +3,8 @@
 // components
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Main } from '../components';
+// import { Main } from '../components';
+import { Button } from '@material-tailwind/react';
 
 // sections
 export default function RootPage() {
@@ -26,9 +27,10 @@ export default function RootPage() {
 
   return (
     <>
+      <Button placeholder={''}>hi</Button>
       {/* <NavbarDark /> */}
       {/* <Navbar /> */}
-      <Main modules={modules} />
+      {/* <Main modules={modules} /> */}
       {/* <Footer /> */}
     </>
   );
